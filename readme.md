@@ -28,3 +28,5 @@ O sistema de auth do django conta com:
 + Middleware de autenticação
 
 Então resolvi usá-lo, e tambem decidi não criar um app Users por não tratar nada por ele, iria ficar um app atoa, então optei por usar o sistema do Django e mais nada, assim deixando menos poluído, minha API não ia necessitar disso, talvez se houvesse outras necessidades eu iria criar um app destinado apenas para isso. Então caso se pergunte onde está guardado o código dos Usuários, ele está na pasta apiUsers, dentro da pasta principal do projeto. O sistema conta com authenticação por token, então é interessante colocar esse token em um header do postman(ou outro) para fazer esse cookie, este token vai ser importante para a relações entre tabelas.
+# Sistema de Rooms - Como Funciona?
+...
