@@ -18,8 +18,9 @@ class CadasterView(APIView):
 class LoginView(APIView):
     def post(self, request):
         serializer = LoginUserSerializer(data=request.data)
-        if serializer.is_valid():
-            user = serializer.save()
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data["user"]
+        if user.is_active:
             token, created = Token.objects.get_or_create(user=user)
             return Response({"token": token.key})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

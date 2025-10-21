@@ -6,7 +6,7 @@ class CadasterUserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
     class Meta:
-        model = User
+        model  = User
         fields = ["username", "email", "password"]
     
     def create(self, validated_data):
@@ -18,12 +18,12 @@ class CadasterUserSerializer(serializers.ModelSerializer):
         return user
     
 class LoginUserSerializer(serializers.Serializer):
-    class Meta:
-        username = serializers.CharField()
-        password = serializers.CharField(write_only=True)
+    username = serializers.CharField()
+    password = serializers.CharField(write_only=True)
     
-    def validation(self, data):
-        user = authenticate(**data)
-        if user and user.is_active():
-            return user
+    def validate(self, data):
+        user = authenticate(username=data.get("username"), password=data.get("password"))
+        if user and user.is_active:
+            data["user"] = user
+            return data
         raise serializers.ValidationError("Credenciais inválidas.")
