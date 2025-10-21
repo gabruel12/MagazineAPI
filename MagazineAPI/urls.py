@@ -5,5 +5,6 @@ URL configuration for MagazineAPI project.
 from django.urls import path, include
 
 urlpatterns = [
-    path("api/auth/", include("MagazineAPI.apiUsers.urls"))
+    path("api/auth/", include("MagazineAPI.apiUsers.urls")),
+    path("api/rooms/", include("RoomsAPI.urls")),
 ]

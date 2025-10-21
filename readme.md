@@ -41,4 +41,22 @@ Então resolvi usá-lo, e tambem decidi não criar um app Users por não tratar 
 ### faça logout apenas entrando.
 O Logout conta com uma forma simples, apenas deletando o Token do usuário, então para logout basta acessar a url.
 # Sistema de Rooms - Como Funciona?
-Bom, o sistema de salas conta com um modelo Room que recebe um nome, uma capacidade e o objetivo da sala (sobre o que será feito), com o intuito de manter a organização, a API conta com um sistema de criação(não relacionado à usuários), de editar, e deletar salas, pode ser acessado pela rota **_api/rooms/algumafunção_** sendo elas as citadas anteriormente.
+Bom, o sistema de salas conta com um modelo Room que recebe um nome, uma capacidade e o objetivo da sala (sobre o que será feito) com o intuito de manter a organização, a API conta com um sistema de criação(não relacionado à usuários), de editar, e deletar salas, pode ser acessado pela rota **_api/rooms/algumafunção_** sendo elas as citadas anteriormente.
+
+### Crie uma sala com:
+    {
+    "name": "Room Name",
+    "capacity": 20,
+    "objective": "Test Room"
+    }
+### Delete apenas acessando:
+    api/rooms/delete/Room%20Name/
+### Edite uma sala com:
+    {
+    "name": "New Name",
+    "capacity": 20,
+    "objective": "New Objective"
+    }
+
+#### Observação:
+Para a filtragem de salas/reservas será usado por uma API separada, com o intuito de manter a organização e preserver os princípios SOLID onde cada coisa tem sua função assim como requisitado pelo mesmo.
