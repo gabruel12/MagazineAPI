@@ -4,9 +4,12 @@ from rest_framework.views import APIView
 
 from RoomsAPI.models import Room
 from RoomsAPI.serializers import RoomSerializer
+from SchedulesAPI.models import Schedules
+from SchedulesAPI.serializers import SchedulesSerializers
 
 MODEL_SERIALIZER_MAP = {
     'rooms': (Room, RoomSerializer),
+    'schedules': (Schedules, SchedulesSerializers),
 }
 
 class DbListAPI(APIView):

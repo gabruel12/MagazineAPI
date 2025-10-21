@@ -60,14 +60,30 @@ Bom, o sistema de salas conta com um modelo Room que recebe um nome, uma capacid
 
 #### Observação:
 Para a filtragem de salas/reservas será usado por uma API separada, com o intuito de manter a organização e preserver os princípios SOLID onde cada coisa tem sua função assim como requisitado pelo mesmo.
+# Sistema de Schedules - Como Funciona?
+O sistema de Schedules/Reserves serve para agendar uma sala, tendo o banco Room como relacionado, o agendamento recebe horário de início e horário de término, recebe um nome e também recebe o banco User relacionado por quem criou a reserva, caso o usúario ou a sala sejam deletados, os agendamentos se vão com eles e serão desfeitos/deletados.
+
+### Como Agendar:
+    {
+        "room": "RoomName",
+        "start_time": "2025-10-12T12:00:00Z",
+        "end_time": "2025-10-12T14:00:00Z"
+    }
+
+E estando logado ele cria o agendamento com a sala e o usuário.
+### Como Remover:
+    na url:
+    api/schedules/remove/ScheduleId/
+
+E apenas acessando ele já remove.
 # Sistema de Filtering - Como Funciona?
 O sistema de Filtering serve para ser uma API para filtragem e listagem de todos os quesitos dessa aplicação, desdê salas até reservas, sendo elas listas ou apenas uma sala/reserva específica, funciona a base de GET na url com querysets usando o nome, ou pedindo a lista da tabela específica.
 ### Exemplo:
-    Método: GET
+    Método: PUT
     api//filter/DbName/RoomName/
 ou
 
-    Método:GET
+    Método: PUT
     api//list/DbName/
 
 usando o nome de uma sala ou de uma reserva para obter as especificações dela ou usando o nome **rooms** seja ela Room ou **schedules** para Schedule para obter dados da tabela(todas as salas, ou todos os agendamentos).
