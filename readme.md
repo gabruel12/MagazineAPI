@@ -27,6 +27,18 @@ O sistema de auth do django conta com:
 + Permissões e grupos
 + Middleware de autenticação
 
-Então resolvi usá-lo, e tambem decidi não criar um app Users por não tratar nada por ele, iria ficar um app atoa, então optei por usar o sistema do Django e mais nada, assim deixando menos poluído, minha API não ia necessitar disso, talvez se houvesse outras necessidades eu iria criar um app destinado apenas para isso. Então caso se pergunte onde está guardado o código dos Usuários, ele está na pasta apiUsers, dentro da pasta principal do projeto. O sistema conta com authenticação por token, então é interessante colocar esse token em um header do postman(ou outro) para fazer esse cookie, este token vai ser importante para a relações entre tabelas.
+Então resolvi usá-lo, e tambem decidi não criar um app Users por não tratar nada por ele, iria ficar um app atoa, então optei por usar o sistema do Django e mais nada, assim deixando menos poluído, minha API não ia necessitar disso, talvez se houvesse outras necessidades eu iria criar um app destinado apenas para isso. Então caso se pergunte onde está guardado o código dos Usuários, ele está na pasta apiUsers, dentro da pasta principal do projeto. O sistema conta com authenticação por token, então é interessante colocar esse token em um header do postman(ou outro) para fazer esse cookie, este token vai ser importante para a relações entre tabelas. Pode ser acessado pela rota **_api/auth/algumafunção_**, contendo login(para logar e obter o token), logout(para sair) e cadaster(para se cadastrar).
+### cadastre-se com:
+    {
+        "username": "your_username",
+        "password": "your_password"  // Se lembre dela!
+    }
+### faça login com:
+    {
+        "username": "your_username",
+        "password": "your_password"
+    }
+### faça logout apenas entrando.
+O Logout conta com uma forma simples, apenas deletando o Token do usuário, então para logout basta acessar a url.
 # Sistema de Rooms - Como Funciona?
-...
+Bom, o sistema de salas conta com um modelo Room que recebe um nome, uma capacidade e o objetivo da sala (sobre o que será feito), com o intuito de manter a organização, a API conta com um sistema de criação(não relacionado à usuários), de editar, e deletar salas, pode ser acessado pela rota **_api/rooms/algumafunção_** sendo elas as citadas anteriormente.
