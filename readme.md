@@ -60,3 +60,14 @@ Bom, o sistema de salas conta com um modelo Room que recebe um nome, uma capacid
 
 #### Observação:
 Para a filtragem de salas/reservas será usado por uma API separada, com o intuito de manter a organização e preserver os princípios SOLID onde cada coisa tem sua função assim como requisitado pelo mesmo.
+# Sistema de Filtering - Como Funciona?
+O sistema de Filtering serve para ser uma API para filtragem e listagem de todos os quesitos dessa aplicação, desdê salas até reservas, sendo elas listas ou apenas uma sala/reserva específica, funciona a base de GET na url com querysets usando o nome, ou pedindo a lista da tabela específica.
+### Exemplo:
+    Método: GET
+    api/filtering/filter/RoomName/
+ou
+
+    Método:GET
+    api/filtering/list/Room
+
+usando o nome de uma sala ou de uma reserva para obter as especificações dela ou usando o nome de uma tabela seja ela Room ou Schedules para obter dados da tabela(todas as salas, ou todos os agendamentos).
