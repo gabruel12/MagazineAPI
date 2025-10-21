@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'RoomsAPI',
     'FilteringAPI',
+    'SchedulesAPI',
 ]
 
 REST_FRAMEWORK = {
