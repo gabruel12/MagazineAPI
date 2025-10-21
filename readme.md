@@ -64,10 +64,12 @@ Para a filtragem de salas/reservas será usado por uma API separada, com o intui
 O sistema de Filtering serve para ser uma API para filtragem e listagem de todos os quesitos dessa aplicação, desdê salas até reservas, sendo elas listas ou apenas uma sala/reserva específica, funciona a base de GET na url com querysets usando o nome, ou pedindo a lista da tabela específica.
 ### Exemplo:
     Método: GET
-    api/filtering/filter/RoomName/
+    api//filter/DbName/RoomName/
 ou
 
     Método:GET
-    api/filtering/list/Room
+    api//list/DbName/
 
-usando o nome de uma sala ou de uma reserva para obter as especificações dela ou usando o nome de uma tabela seja ela Room ou Schedules para obter dados da tabela(todas as salas, ou todos os agendamentos).
+usando o nome de uma sala ou de uma reserva para obter as especificações dela ou usando o nome **rooms** seja ela Room ou **schedules** para Schedule para obter dados da tabela(todas as salas, ou todos os agendamentos).
+## Por Quê?
+Prefiri fazer uma listagem separada para que possa globalizar essa função de modo com que caso outros bancos sejam criados eles possam ter uma filtragem com fácil manutenção, e para que não dependam de uma própria filtragem ou listagem de seus objetos, também prezando pela organização e pela otimização da API, deixando-a mais eficiente.

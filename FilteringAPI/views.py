@@ -1,5 +1,34 @@
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.generics import FilterAPIView
+from rest_framework.views import APIView
 
-from .serializers import 
+from RoomsAPI.models import Room
+from RoomsAPI.serializers import RoomSerializer
+
+MODEL_SERIALIZER_MAP = {
+    'rooms': (Room, RoomSerializer),
+}
+
+class DbListAPI(APIView):
+    def get(self, request, dbname):
+        model_info = MODEL_SERIALIZER_MAP.get(dbname)
+        if not model_info:
+            return Response({"detail": "Table not found."}, status=status.HTTP_404_NOT_FOUND)
+        model, serializer_class = model_info
+        queryset = model.objects.all()
+        serializer = serializer_class(queryset, many=True)
+        return Response(serializer.data)
+
+class FIlterAPI(APIView):
+    def get(self, request, dbname, objname):
+        model_info = MODEL_SERIALIZER_MAP.get(dbname)
+        if not model_info:
+            return Response({"detail": "Table not found."}, status=status.HTTP_404_NOT_FOUND)
+        model, serializer_class = model_info
+        try:
+            obj = model.objects.get(name=objname)
+        except model.DoesNotExists:
+            return Response({"detail": "Object not found."}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = serializer_class(obj)
+        return Response(serializer.data)
