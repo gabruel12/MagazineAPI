@@ -91,7 +91,7 @@ usando o nome de uma sala ou de uma reserva para obter as especificações dela 
 Prefiri fazer uma listagem separada para que possa globalizar essa função de modo com que caso outros bancos sejam criados eles possam ter uma filtragem com fácil manutenção, e para que não dependam de uma própria filtragem ou listagem de seus objetos, também prezando pela organização e pela otimização da API, deixando-a mais eficiente.
 # Sistema de Logs - Como Funciona?
 A API conta com um sistema de logs para que possa saber quem criou, editou, deletou tal coisa, foram inclementados alguns logs com nomes específicos para funções específicas, os nomes podem sem vistos na pasta Logs no arquivo logs, onde tem o dicionário de LOGS_MESSAGES. Caso haja dúvida lá estará guardado, o sistema de logs foi feito na intenção de que não de para apagar-los e também com o intuito de ser fácil de usar, organizado e que possa receber atualizações de logs caso seja preciso, se houver algo a mais por exemplo, uma criação de uma função extra, esse log pode ser incrementado fácil e rápido apenas o adicionando no nosso dicionário.
-# Inclementação do PyTest
+# Inplementação do PyTest
 ## como usar a lib pytest?
 Começare-mos instalando a lib usando o pipinstall do python, em nosso terminal, utilizando o comando:
 
