@@ -89,3 +89,29 @@ ou
 usando o nome de uma sala ou de uma reserva para obter as especificações dela ou usando o nome **rooms** seja ela Room ou **schedules** para Schedule para obter dados da tabela(todas as salas, ou todos os agendamentos).
 ## Por Quê?
 Prefiri fazer uma listagem separada para que possa globalizar essa função de modo com que caso outros bancos sejam criados eles possam ter uma filtragem com fácil manutenção, e para que não dependam de uma própria filtragem ou listagem de seus objetos, também prezando pela organização e pela otimização da API, deixando-a mais eficiente.
+# Sistema de Logs - Como Funciona?
+A API conta com um sistema de logs para que possa saber quem criou, editou, deletou tal coisa, foram inclementados alguns logs com nomes específicos para funções específicas, os nomes podem sem vistos na pasta Logs no arquivo logs, onde tem o dicionário de LOGS_MESSAGES. Caso haja dúvida lá estará guardado, o sistema de logs foi feito na intenção de que não de para apagar-los e também com o intuito de ser fácil de usar, organizado e que possa receber atualizações de logs caso seja preciso, se houver algo a mais por exemplo, uma criação de uma função extra, esse log pode ser incrementado fácil e rápido apenas o adicionando no nosso dicionário.
+# Inclementação do PyTest
+## como usar a lib pytest?
+Começare-mos instalando a lib usando o pipinstall do python, em nosso terminal, utilizando o comando:
+
+    python -m pip install pytest
+
+Como pode ver acima, para sistemas de tests unitários foram criadas algumas pastas em cada app do projeto para que possa receber essa atualização de testes depois, por enquanto a parte de testes está em **_desenvolvimento_**, espero trazer-lo da melhor forma possível para que os teste unitários sejam eficazes e úteis quando necessário.
+# Interface de Teste com Bruno
+Foi adicionada a pasta _MagazineAPI_JSON_tests_ na raíz do projeto, esta pasta pode ser aberta usando o Bruno Client (não sei se funciona com outra interface de testes de API's), o íntuito desta pasta é facilitar os testes em JSON já com urls prontas e organizadas para que o teste seja feito.
+## Como baixar o Bruno Client?
+Para baixar basta acessar o link abaixo:
++ [Bruno Client - www.usebruno.com](https://www.usebruno.com/pricing)
+
+Clique no botão de download da versão Open Source do projeto, após instalação você pode notar que a interface é bem amigável e que lembra muito o postman.
+# Fixed bugs
+Alguns bugs foram identificados com o desenvolvimento do projeto, e resolvidos para a melhor experiencia da API, outros não, foram arrumados:
++ Edit Room - A sala podia ser renomeada com o mesmo nome que outra.
++ Filter Room - Caso houvesse 2 salas com mesmo nome, não retornava um objeto.
+# bugs
++ Login - O **principal** bug deste projeto está sendo a authenticação de um login usando o token, estou tentando encontrar este erro para arrumar e fazer com que nosso usuário possa ser logado e não retornar um erro de token. Por enquanto peço que quando for criar uma **sala** user _**created_by:**_ _user_name_ , para que possa ser criada, caso contrário se o bug ainda estiver ativo ele retornará que está faltando um campo obrigátorio: **created_by**.
+# Notas
+Foram adicionadas algumas mensagens em json para retornar um erro mais amigável caso haja algum, estes **erros** são apenas erros que provávelmente vieram do teste e não erros do sistema em sí, como quando retorna um 404 (Page Not Found) ou alguns outros, caso apareça um erro do próprio sistema do django, então muito provávelmente este erro passou **despercebido**.
+#### Agradeço a atenção.
+<hr>

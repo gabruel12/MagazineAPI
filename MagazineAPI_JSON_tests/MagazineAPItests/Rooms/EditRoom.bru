@@ -1,0 +1,24 @@
+meta {
+  name: EditRoom
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://127.0.0.1:8000/api/rooms/edit/2/
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "MyRoom",
+    "capacity": "5",
+    "objective": "testing now"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

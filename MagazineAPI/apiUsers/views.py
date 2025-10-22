@@ -1,4 +1,5 @@
 from .serializers import CadasterUserSerializer, LoginUserSerializer
+from Logs.models import logger
 
 from rest_framework import status
 from rest_framework.response import Response

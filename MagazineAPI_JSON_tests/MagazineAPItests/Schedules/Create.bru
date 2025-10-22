@@ -1,0 +1,29 @@
+meta {
+  name: Create
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://127.0.0.1:8000/api/schedules/create/
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Token b3303154bd73b47772bafb965d69ed017af7da62
+}
+
+body:json {
+  {
+    "room": 8,
+    "start_time": "2025-1-10T15:00:00Z",
+    "end_time": "2025-1-10T16:00:00Z",
+    "created_by": 1
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

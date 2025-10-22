@@ -1,0 +1,16 @@
+meta {
+  name: Filter
+  type: http
+  seq: 9
+}
+
+get {
+  url: http://127.0.0.1:8000/api/filter/rooms/My%20Room/
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

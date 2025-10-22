@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ad36nn-we3hgimp!#(qr+q#vz5u__9nd&qlue7&w47riyrwe0u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -29,9 +29,11 @@ INSTALLED_APPS = [
     'RoomsAPI',
     'FilteringAPI',
     'SchedulesAPI',
+    'Logs',
 ]
 
 REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'core.exceptions.custom_exception_handler',
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication'
     ],
