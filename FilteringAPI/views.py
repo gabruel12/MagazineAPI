@@ -22,7 +22,7 @@ class DbListAPI(APIView):
         serializer = serializer_class(queryset, many=True)
         return Response(serializer.data)
 
-class FIlterAPI(APIView):
+class FilterAPI(APIView):
     def get(self, request, dbname, objname):
         model_info = MODEL_SERIALIZER_MAP.get(dbname)
         if not model_info:
@@ -30,7 +30,7 @@ class FIlterAPI(APIView):
         model, serializer_class = model_info
         try:
             obj = model.objects.get(name=objname)
-        except model.DoesNotExists:
+        except model.DoesNotExist:
             return Response({"detail": "Object not found."}, status=status.HTTP_404_NOT_FOUND)
 
         serializer = serializer_class(obj)
